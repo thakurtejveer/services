@@ -1,5 +1,15 @@
 # Services
 
+(Written by me)
+	1-component is generating employee array and viewing it in page. (we are voilating  some principles here like DRY(Don't repeat yourself), Single Responsibility Principle. 
+
+
+
+
+(automatically written by angular)
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.14.
 
 ## Development server
