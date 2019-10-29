@@ -3,6 +3,7 @@
 (Written by me)
 	1-component is generating employee array and viewing it in page. (we are voilating  some principles here like DRY(Don't repeat yourself), Single Responsibility Principle. 
 
+	2-Service class is created, Dependencies injection is introduced.
 
 
 
