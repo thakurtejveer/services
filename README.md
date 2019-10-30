@@ -1,11 +1,11 @@
 # Services
 
 (Written by me)
-#1-component is generating employee array and viewing it in page. (we are voilating  some principles here like DRY(Don't repeat yourself), Single Responsibility Principle. 
+## 1-component is generating employee array and viewing it in page. (we are voilating  some principles here like DRY(Don't repeat yourself), Single Responsibility Principle. 
 
-#2-Service class is created, Dependencies injection is introduced.
+## 2-Service class is created, Dependencies injection is introduced.
 
-#3-Http and Observables are being done commit numbner 6. steps to do it are following-
+## 3-Http and Observables are being done commit numbner 6. steps to do it are following-
 
 a) In angular 5, include HttpClientModule in imports and import it in app.module.ts, use HttpClient in angular4
 b) Inject dependency in constructor in employee.service.ts and refer as some variable, say http
@@ -15,14 +15,14 @@ d) to convert data into type usable, create an interface, say export interface I
 e) data comes asynchronously and component need to subscribe to Observable using and have to pass to local variable (this._employeeService.getEmployees().subscribe(data=>this.employees=data);)
 f) using *ngFor directive, data can be listed out on screen.
 
-# 4-HttpErrorHandler- Steps are following
+## 4-HttpErrorHandler- Steps are following
 a) In service class, import {cathError} from 'rxjs/operators'; and import {throwError} from 'rxjs'; 
 b) If there is an error in getting Observable in getEmployees() in employee.service.ts then pipe the error message
 i.e  .pipe(catchError(this.handleError))
 c) Implement the handleError (read angular HttpClient documentation for error handleing)
 d) In component, get the error message if there is no data coming.
 
-#5-Routing and Navigation- Steps are as follows
+# 5-Routing and Navigation- Steps are as follows
 a) Generate project with routing options (if the project is existing and routing is not been injected at the time of creation project in angular)
 	1-In index.html, add a base tag, <base href="/">
 	2-Create new file, app-routing.module.ts and configure the different routes.
