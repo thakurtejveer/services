@@ -7,38 +7,39 @@
 
 ## 3-Http and Observables are being done commit numbner 6. steps to do it are following-
 
-a) In angular 5, include HttpClientModule in imports and import it in app.module.ts, use HttpClient in angular4
-b) Inject dependency in constructor in employee.service.ts and refer as some variable, say http
-c) in getEmployee() method, using .get, get the data, but keep in mind .get returns the Observable.
-(    return this.http.get<IEmployee[]>(this._url); _url can be of .json file somewhere in project or some API)
-d) to convert data into type usable, create an interface, say export interface IEmployee{ id:number, name:string, age:number} and cast the Observable in array of employees (i.e getEmployee() : Observable<IEmployee> { } and import the Observable from rxjs or from rxjs/Observable (whichever suits)
-e) data comes asynchronously and component need to subscribe to Observable using and have to pass to local variable (this._employeeService.getEmployees().subscribe(data=>this.employees=data);)
-f) using *ngFor directive, data can be listed out on screen.
+		a) In angular 5, include HttpClientModule in imports and import it in app.module.ts, use HttpClient in angular4
+		b) Inject dependency in constructor in employee.service.ts and refer as some variable, say http
+		c) in getEmployee() method, using .get, get the data, but keep in mind .get returns the Observable.
+		(    return this.http.get<IEmployee[]>(this._url); _url can be of .json file somewhere in project or some API)
+		d) to convert data into type usable, create an interface, say export interface IEmployee{ id:number, name:string, age:number} and cast the Observable in array of employees (i.e getEmployee() : Observable<IEmployee> { } and import the Observable from rxjs or from rxjs/Observable (whichever suits)
+		e) data comes asynchronously and component need to subscribe to Observable using and have to pass to local variable (this._employeeService.getEmployees().subscribe(data=>this.employees=data);)
+		f) using *ngFor directive, data can be listed out on screen.
 
 ## 4-HttpErrorHandler- Steps are following
-a) In service class, import {cathError} from 'rxjs/operators'; and import {throwError} from 'rxjs'; 
-b) If there is an error in getting Observable in getEmployees() in employee.service.ts then pipe the error message
-i.e  .pipe(catchError(this.handleError))
-c) Implement the handleError (read angular HttpClient documentation for error handleing)
-d) In component, get the error message if there is no data coming.
+		a) In service class, import {cathError} from 'rxjs/operators'; and import {throwError} from 'rxjs'; 
+		b) If there is an error in getting Observable in getEmployees() in employee.service.ts then pipe the error message
+		i.e  .pipe(catchError(this.handleError))
+		c) Implement the handleError (read angular HttpClient documentation for error handleing)
+		d) In component, get the error message if there is no data coming.
 
 ## 5-Routing and Navigation- Steps are as follows
-a) Generate project with routing options (if the project is existing and routing is not been injected at the time of creation project in angular)
-	1-In index.html, add a base tag, <base href="/">
-	2-Create new file, app-routing.module.ts and configure the different routes.
-	3-Import AppRoutingModel in app.model.ts and add in imports array.
-	4-Configure the different routes in app-routing.module.ts in the following fashion 
-const routes: Routes= [ {path: 'employeeList', component:EmployeeListComponent}, {path: 'employeeDetails', component:EmployeeDetailComponent} ];
-	5-import EmployeeListComponent and EmployeeDetailComponent in app-routing.module
-	6-In app.module.ts, import EmployeeListComponent and EmployeeDetailComponent and add both components in declarations.
-	7- To reduce the duplicacy of import statements of both components, we have done. In app-routing.module.ts, export const routingComponents=[EmployeeListComponent, EmployeeDetailComponent].
-	8-In app.module.ts, Replace both EmployeeListComponent and EmployeeDetailComponent by one import of routingComponent and replace the same by routingComponent in declarations.
-	9- add <router-outlet></router-outlet> in app.component.html file.
-	10- add buttons to navigate to different components. 
-<nav>
-  <a routerLink="/employeeList" routerLinkActive="active">Employee List</a>
-  <a routerLink="/employeeDetail" routerLinkActive="active">Employee Details</a>
-</nav>
+
+		a) Generate project with routing options (if the project is existing and routing is not been injected at the time of creation project in angular)
+		1-In index.html, add a base tag, <base href="/">
+		2-Create new file, app-routing.module.ts and configure the different routes.
+		3-Import AppRoutingModel in app.model.ts and add in imports array.
+		4-Configure the different routes in app-routing.module.ts in the following fashion 
+	const routes: Routes= [ {path: 'employeeList', component:EmployeeListComponent}, {path: 'employeeDetails', component:EmployeeDetailComponent} ];
+		5-import EmployeeListComponent and EmployeeDetailComponent in app-routing.module
+		6-In app.module.ts, import EmployeeListComponent and EmployeeDetailComponent and add both components in declarations.
+		7- To reduce the duplicacy of import statements of both components, we have done. In app-routing.module.ts, export const routingComponents=[EmployeeListComponent, EmployeeDetailComponent].
+		8-In app.module.ts, Replace both EmployeeListComponent and EmployeeDetailComponent by one import of routingComponent and replace the same by routingComponent in declarations.
+		9- add <router-outlet></router-outlet> in app.component.html file.
+		10- add buttons to navigate to different components. 
+	<nav>
+	  <a routerLink="/employeeList" routerLinkActive="active">Employee List</a>
+	  <a routerLink="/employeeDetail" routerLinkActive="active">Employee Details</a>
+	</nav>
 
 ## 6-Wildcard Routes and Redirecting Routes-Steps are following
 
