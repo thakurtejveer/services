@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { IEmployee  } from  './employee';
+import { Observable } from 'rxjs'; //if code gives error the try 'rxjs/Observable'
 //@Injectable is must , without is service class will become just a typescript class.
 //@Injectable is must to use when service class have dependencies on other service class.
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
+  
+  private _url:string="/assets/data/employees.json";
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
-  getEmployees() {
-    return [
-    {"id":1, "name":"Serhat", "age": 30},
-    {"id":2, "name":"Durmus", "age": 30},
-    {"id":3, "name":"Ed", "age": 28},
-    {"id":4, "name":"Sheeran", "age": 28},
-    {"id":5, "name":"Sia Furler", "age": 43}
-    ];
+  getEmployees(): Observable<IEmployee[]> {
+    return this.http.get<IEmployee[]>(this._url);
   }
 }
