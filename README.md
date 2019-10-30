@@ -13,6 +13,14 @@ d) to convert data into type usable, create an interface, say export interface I
 e) data comes asynchronously and component need to subscribe to Observable using and have to pass to local variable (this._employeeService.getEmployees().subscribe(data=>this.employees=data);)
 f) using *ngFor directive, data can be listed out on screen.
 
+	4-HttpErrorHandler- Steps are following
+a) In service class, import {cathError} from 'rxjs/operators'; and import {throwError} from 'rxjs'; 
+b) If there is an error in getting Observable in getEmployees() in employee.service.ts then pipe the error message
+i.e  .pipe(catchError(this.handleError))
+c) Implement the handleError (read angular HttpClient documentation for error handleing)
+d) In component, get the error message if there is no data coming.
+         
+
 
 
 (automatically written by angular)
