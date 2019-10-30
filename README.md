@@ -4,7 +4,9 @@
 #1-component is generating employee array and viewing it in page. (we are voilating  some principles here like DRY(Don't repeat yourself), Single Responsibility Principle. 
 
 #2-Service class is created, Dependencies injection is introduced.
-#3-Http and Observables are being done commit numbner 6. steps to do it are following-\
+
+#3-Http and Observables are being done commit numbner 6. steps to do it are following-
+
 a) In angular 5, include HttpClientModule in imports and import it in app.module.ts, use HttpClient in angular4
 b) Inject dependency in constructor in employee.service.ts and refer as some variable, say http
 c) in getEmployee() method, using .get, get the data, but keep in mind .get returns the Observable.
@@ -20,7 +22,7 @@ i.e  .pipe(catchError(this.handleError))
 c) Implement the handleError (read angular HttpClient documentation for error handleing)
 d) In component, get the error message if there is no data coming.
 
-#5-Routing and Navigation: Steps are as follows
+#5-Routing and Navigation- Steps are as follows
 a) Generate project with routing options (if the project is existing and routing is not been injected at the time of creation project in angular)
 	1-In index.html, add a base tag, <base href="/">
 	2-Create new file, app-routing.module.ts and configure the different routes.
@@ -31,8 +33,12 @@ const routes: Routes= [ {path: 'employeeList', component:EmployeeListComponent},
 	6-In app.module.ts, import EmployeeListComponent and EmployeeDetailComponent and add both components in declarations.
 	7- To reduce the duplicacy of import statements of both components, we have done. In app-routing.module.ts, export const routingComponents=[EmployeeListComponent, EmployeeDetailComponent].
 	8-In app.module.ts, Replace both EmployeeListComponent and EmployeeDetailComponent by one import of routingComponent and replace the same by routingComponent in declarations.
-  
-	
+	9- add <router-outlet></router-outlet> in app.component.html file.
+	10- add buttons to navigate to different components. 
+<nav>
+  <a routerLink="/employeeList" routerLinkActive="active">Employee List</a>
+  <a routerLink="/employeeDetail" routerLinkActive="active">Employee Details</a>
+</nav>
 
 
 
