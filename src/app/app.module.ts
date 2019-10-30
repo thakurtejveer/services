@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { EmployeeService } from './employee.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SingerDetailComponent } from './singer-detail/singer-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SingerDetailComponent
     // EmployeeListComponent,
     // EmployeeDetailComponent
   ],

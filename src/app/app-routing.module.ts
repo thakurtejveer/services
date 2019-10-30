@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SingerDetailComponent } from './singer-detail/singer-detail.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   //The above object will always redirect to /employeeList
   {path:'', redirectTo: '/employeeList', pathMatch: 'full'},
   {path:'employeeList', component:EmployeeListComponent},
+  {path:'employeeList/:id', component:SingerDetailComponent},
   {path:'employeeDetail', component: EmployeeDetailComponent},
   {path:'**', component: PageNotFoundComponent}
 
@@ -25,4 +27,5 @@ export class AppRoutingModule { }
 
 export const routingComponents=[EmployeeListComponent,
                                 EmployeeDetailComponent,
-                                PageNotFoundComponent]
+                                PageNotFoundComponent,
+                                SingerDetailComponent]
