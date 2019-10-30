@@ -4,5 +4,11 @@
   </h2>
 </div>
 
-<app-employee-list></app-employee-list>
-<app-employee-detail></app-employee-detail>
+<nav>
+  <a routerLink="/employeeList" routerLinkActive="active">Employee List</a>
+  <a routerLink="/employeeDetail" routerLinkActive="active">Employee Details</a>
+</nav>
+
+<router-outlet></router-outlet>
+<!-- <app-employee-list></app-employee-list>
+<app-employee-detail></app-employee-detail> -->
