@@ -22,7 +22,7 @@ i.e  .pipe(catchError(this.handleError))
 c) Implement the handleError (read angular HttpClient documentation for error handleing)
 d) In component, get the error message if there is no data coming.
 
-# 5-Routing and Navigation- Steps are as follows
+## 5-Routing and Navigation- Steps are as follows
 a) Generate project with routing options (if the project is existing and routing is not been injected at the time of creation project in angular)
 	1-In index.html, add a base tag, <base href="/">
 	2-Create new file, app-routing.module.ts and configure the different routes.
@@ -40,7 +40,12 @@ const routes: Routes= [ {path: 'employeeList', component:EmployeeListComponent},
   <a routerLink="/employeeDetail" routerLinkActive="active">Employee Details</a>
 </nav>
 
+## 6-Wildcard Routes and Redirecting Routes-Steps are following
 
+	1- Create a component ng g c page-not-found
+	2- Give {path:'**', component: PageNotFoundComponent} in the bottom of all the objects in the routes in app-routing.module.ts 
+	3- Add PageNotFoundComponent in export const routingComponents array in app-routing.module.ts
+	4- add another object at top of all routes in app-routing.module.ts,   {path:'', redirectTo: '/employeeList', pathMatch: 'full'}
 
 (automatically written by angular)
 
