@@ -4,6 +4,14 @@
 	1-component is generating employee array and viewing it in page. (we are voilating  some principles here like DRY(Don't repeat yourself), Single Responsibility Principle. 
 
 	2-Service class is created, Dependencies injection is introduced.
+	3-Http and Observables are being done commit numbner 6. steps to do it are following-\
+a) In angular 5, include HttpClientModule in imports and import it in app.module.ts, use HttpClient in angular4
+b) Inject dependency in constructor in employee.service.ts and refer as some variable, say http
+c) in getEmployee() method, using .get, get the data, but keep in mind .get returns the Observable.
+(    return this.http.get<IEmployee[]>(this._url); _url can be of .json file somewhere in project or some API)
+d) to convert data into type usable, create an interface, say export interface IEmployee{ id:number, name:string, age:number} and cast the Observable in array of employees (i.e getEmployee() : Observable<IEmployee> { } and import the Observable from rxjs or from rxjs/Observable (whichever suits)
+e) data comes asynchronously and component need to subscribe to Observable using and have to pass to local variable (this._employeeService.getEmployees().subscribe(data=>this.employees=data);)
+f) using *ngFor directive, data can be listed out on screen.
 
 
 
